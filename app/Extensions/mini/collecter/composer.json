@@ -1,0 +1,32 @@
+{
+    "name": "mini/collecter",
+    "alias": "收集者",
+    "description": "mini专属的收集程序",
+    "type": "library",
+    "keywords": ["dcat-admin", "extension"],
+    "homepage": "https://github.com/mini/collecter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wen",
+            "email": "863627472@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "dcat/laravel-admin": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mini\\Collecter\\": "src/"
+        }
+    },
+    "extra": {
+        "dcat-admin": "Mini\\Collecter\\CollecterServiceProvider",
+        "laravel": {
+            "providers": [
+                "Mini\\Collecter\\CollecterServiceProvider"
+            ]
+        }
+    }
+}
