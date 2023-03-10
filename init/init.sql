@@ -11,7 +11,7 @@
  Target Server Version : 50718
  File Encoding         : 65001
 
- Date: 06/03/2023 18:42:13
+ Date: 09/03/2023 18:04:16
 */
 
 SET NAMES utf8mb4;
@@ -86,7 +86,7 @@ CREATE TABLE `admin_menu`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin_menu
@@ -168,6 +168,7 @@ INSERT INTO `admin_menu` VALUES (87, 51, 1002, 'SEO', NULL, '/settings/seo', '',
 INSERT INTO `admin_menu` VALUES (112, 0, 1003, '定时任务', 'fa-gears', '', 'jyil.crontab', 1, '2023-03-06 18:38:51', '2023-03-06 18:38:51');
 INSERT INTO `admin_menu` VALUES (113, 112, 1004, '任务列表', 'fa-tasks', 'auth/crontabs', 'jyil.crontab', 1, '2023-03-06 18:38:51', '2023-03-06 18:38:51');
 INSERT INTO `admin_menu` VALUES (114, 112, 1005, '日志列表', 'fa-file-text-o', 'auth/crontab-logs', 'jyil.crontab', 1, '2023-03-06 18:38:51', '2023-03-06 18:38:51');
+INSERT INTO `admin_menu` VALUES (115, 0, 1006, '活跃系统', 'fa-paw', 'settings/robot', '', 1, '2023-03-08 15:22:38', '2023-03-08 15:22:38');
 
 -- ----------------------------
 -- Table structure for admin_permission_menu
