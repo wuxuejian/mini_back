@@ -1,6 +1,6 @@
 @extends('shuixing.home')
 
-@section('title', $the_tag->tags_name . ' - 话题')
+@section('title', ($the_tag ? $the_tag->tags_name : '热门标签') . ' - 话题')
 @section('description', $the_tag->tag_introduce ?? \App\Wen\Utils\Settings::get('app_title'))
 
 @section('progress')
@@ -41,8 +41,8 @@
                                 <div class="entry-meta meta-0 font-small mb-15">
                                     <a href="/circle/{{$item['circle_id']}}"><span
                                             class="post-cat">{{$item['circle_name']}}</span></a>
-                                    @foreach ($item['tags'] as $tag)
-                                        <a href="/tag/{{$tag['id']}}"><span>#{{$tag['tags_name']}}</span></a>
+                                    @foreach ($item['tags'] as $tag_)
+                                        <a href="/tag/{{$tag_['id']}}"><span>#{{$tag_['tags_name']}}</span></a>
                                     @endforeach
                                 </div>
                                 <div class="d-flex post-card-content">
