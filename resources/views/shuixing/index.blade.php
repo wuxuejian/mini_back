@@ -1,7 +1,6 @@
 @extends('shuixing.home')
 
-@section('title', 'MiniSNS社区带货系统')
-@section('keywords', 'shuixing')
+@section('title', \App\Wen\Utils\Settings::get('app_intro'))
 
 @section('progress')
     @parent
