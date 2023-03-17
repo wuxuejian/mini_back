@@ -31,7 +31,7 @@
             <img class="avatar img-circle shadow mt-1" src="{{config('admin.logo_url')}}">
 
             <div class="text-center mb-1">
-                <h1 class="mb-3 mt-2 text-white">{{config('admin.name')}}<span style="font-size: 16px; margin-left: 10px;">{{ $code_protocol  }}</span></h1>
+                <h1 class="mb-3 mt-2 text-white">{{config('admin.name')}}<span style="font-size: 16px; margin-left: 10px;">v{{ $version  }}</span></h1>
                 <div class="links">
                     <a href="https://www.minisns.cn" target="_blank">MiniSNS官网</a>
                     <a  id="doc-link" target="_blank" style="text-decoration: line-through;">代理商</a>
