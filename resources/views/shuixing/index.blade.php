@@ -1,7 +1,7 @@
 @extends('shuixing.home')
 
 @section('title', \App\Wen\Utils\Settings::get('app_intro'))
-
+@section('description', \App\Wen\Utils\Settings::get('app_title'))
 @section('progress')
     @parent
 {{--        <div class="scroll-progress primary-bg"></div>--}}
