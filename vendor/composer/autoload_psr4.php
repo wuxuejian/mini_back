@@ -87,6 +87,7 @@ return array(
     'JiaweiXS\\WeApp\\' => array($vendorDir . '/jiaweixs/weapp/src'),
     'JiaweiXS\\' => array($vendorDir . '/jiaweixs/simplecache/src'),
     'Jaeger\\' => array($vendorDir . '/jaeger/g-http/src'),
+    'Intervention\\Image\\' => array($vendorDir . '/intervention/image/src/Intervention/Image'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
     'GuzzleHttp\\UriTemplate\\' => array($vendorDir . '/guzzlehttp/uri-template/src'),

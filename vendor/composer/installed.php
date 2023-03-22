@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '82866758540d1195eb795c3667632156e3ed3ce0',
+        'reference' => 'b7757ffebf36b6f8a2bbd17ab7703b96f17406df',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -547,6 +547,15 @@
                 0 => 'v8.83.27',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.2',
+            'version' => '2.7.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '04be355f8d6734c826045d02a1079ad658322dad',
+            'dev_requirement' => false,
+        ),
         'jaeger/g-http' => array(
             'pretty_version' => 'V1.7.2',
             'version' => '1.7.2.0',
@@ -613,7 +622,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '82866758540d1195eb795c3667632156e3ed3ce0',
+            'reference' => 'b7757ffebf36b6f8a2bbd17ab7703b96f17406df',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
