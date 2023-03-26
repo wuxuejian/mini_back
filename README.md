@@ -6,6 +6,7 @@
 **关于作者**：本人工作岗位是NLP工程师，俗称炼丹侠的ai工程师一种，所以我擅长的是逻辑，算法，后端，并不擅长前端的UI美化，这里真诚的邀请前端大佬和我一起打磨这个产品。我一直想做一个可以永远运营下去的App，无关赚钱，只是读书时候的理想。   
 目前市面上真正完善运营级的社交程序不多，很难满足自己的要求，那我们就创造一个吧。   
 ### 一、演示
+（由于大多数时间处于审核中的状态，若开启了审核模式，不会显示视频）   
 1、APP端：[https://www.chongyeapp.com](https://www.chongyeapp.com "https://www.chongyeapp.com")  
 2、小程序端：微信小程序搜索：宠也网  
 ![](https://img.mini.chongyeapp.com/images/hbx/minipro.jpg)  
@@ -18,12 +19,13 @@
 | --- | --- |
 | ![](https://img.mini.chongyeapp.com/images/hbx/1.png)首页 | ![](https://img.mini.chongyeapp.com/images/hbx/17.png)发现页 |
 | ![](https://img.mini.chongyeapp.com/images/hbx/3.png)发表图文 | ![](https://img.mini.chongyeapp.com/images/hbx/4.png)发表付费贴 |
-| ![](https://img.mini.chongyeapp.com/images/hbx/5.png)我的 | ![](https://img.mini.chongyeapp.com/images/hbx/6.png)管理页 |
+| ![](https://img.mini.chongyeapp.com/images/hbx/18.png)登录 | ![](https://img.mini.chongyeapp.com/images/hbx/19.png)搜索页 |
+| ![](https://img.mini.chongyeapp.com/images/hbx/5.png)我的 | ![](https://img.mini.chongyeapp.com/images/hbx/23.png)管理页 |
 | ![](https://img.mini.chongyeapp.com/images/hbx/7.png)钱包 | ![](https://img.mini.chongyeapp.com/images/hbx/8.png)余额充值 |
 | ![](https://img.mini.chongyeapp.com/images/hbx/9.png)详情页1 | ![](https://img.mini.chongyeapp.com/images/hbx/10.png)详情页2 |
 | ![](https://img.mini.chongyeapp.com/images/hbx/11.png)话题页 | ![](https://img.mini.chongyeapp.com/images/hbx/12.png)搜索页 |
 | ![](https://img.mini.chongyeapp.com/images/hbx/13.png)常见问题 | ![](https://img.mini.chongyeapp.com/images/hbx/14.png)图集详情 |
-| ![](https://img.mini.chongyeapp.com/images/hbx/15.png)消费记录 | ![](https://img.mini.chongyeapp.com/images/hbx/16.png)订单（包含虚拟物品） |   
+| ![](https://img.mini.chongyeapp.com/images/hbx/15.png)消费记录 | ![](https://img.mini.chongyeapp.com/images/hbx/20.png)订单（包含虚拟物品） |   
 
 ### 三、说明
 mini是一个很严格的企业级运营的程序，拥有一个营业执照和一个服务器（不是虚拟机）是最基本的需求，mini强大的地方不是颜值，而是建立在一个非常健康的系统上，稳定运行，为之后的算法实现减少难度，当然小白只能看得懂好不好看，总之，适合小中大型社区平台   
@@ -35,9 +37,8 @@ mini是一个很严格的企业级运营的程序，拥有一个营业执照和�
 1、整个项目分为前端和后端，后端地址：[https://gitee.com/wen-open/mini_back](https://gitee.com/wen-open/mini_back "https://gitee.com/wen-open/mini_back")  
 2、前端文档：[https://doc.chongyeapp.com/project-2/](https://doc.chongyeapp.com/project-2/ "https://doc.chongyeapp.com/project-2/")  
 后端文档：[https://doc.chongyeapp.com/project-1/](https://doc.chongyeapp.com/project-1/ "https://doc.chongyeapp.com/project-1/")  
-3、本项目前端是基于“轻航”的微信小程序源码重写为uniapp代码二开而来，轻航官网：[https://qinghang.supengjun.com/index.html](https://qinghang.supengjun.com/index.html "https://qinghang.supengjun.com/index.html")  
-4、本项目后端分为“开源版”和“私密版”，前端是统一的。了解私密版请至：[https://www.minisns.cn/](https://www.minisns.cn/ "https://www.minisns.cn/")  
-5、进项目交流群请加我微信：ShaoWenSir  
+3、本项目前端是基于“轻航”的微信小程序源码重写为uniapp代码二开而来，轻航官网：[https://qinghang.supengjun.com/index.html](https://qinghang.supengjun.com/index.html "https://qinghang.supengjun.com/index.html")   
+4、进项目交流群请加我微信：ShaoWenSir  
 ![](https://img.mini.chongyeapp.com/images/mmqrcode1677495496626%281%29.png)  
 
 ### 五、付费功能
@@ -58,10 +59,11 @@ mini是一个很严格的企业级运营的程序，拥有一个营业执照和�
 | 收费9 | 活跃系统 | 200 | 老样子，该功能还是预付费，目前只写了一个自动点赞功能，点赞的数量是根据当前内容质量决定，比如图片多，文字多，有附件上传，收藏多等，都会增加它计算的点赞数，这个系统会慢慢完善。 |
 | 收费10 | seo额外支持 | 30 | 本项目的pc端用于seo，获取免费的搜索流量。本系统已经有了sitemap自动生成的能力，也可以被索引，并不是不捐助就不能被搜索的到，额外的能力包括：1、主动推送链接到百度 |
 | 收费11 | 商城虚拟物品 | 50 | 该功能解锁后，你可以发布虚拟物品的商品到商城，并且会自动发货，用户可以在商品订单中查看你设置的内容 |
-| 收费12 | 淘客 | xxx | 目前该功能在完善中，占坑 |
+| 收费12 | 实时热榜 | 100 | 系统会维护帖子，用户，话题，圈子等各自的榜单。比如帖子采用如下公式计算出热度，这个热度有趣的地方是随着时间不断变小，因为参数T在不断变大。![](https://img.mini.chongyeapp.com/images/hbx/top_ten2.jpg)   这个实时热榜只是基础，让社区各个对象拥有一个热度，然后我们可以依据各个对象的热度生成各种榜单，比如：1、十大热帖（比如帖子A拥有100个喜欢，帖子B拥有50个喜欢，按照热度应该是A排在B前面，但近2个小时内，B收到10个喜欢，A只有1个，增量榜就会将B排在A的前面，十大热帖就是指该增量最大的10个） |
+| 收费13 | 淘客 | xxx | 目前该功能在完善中，占坑 |
 | --- | --- | --- | 还有一些淘客，采集程序程序我就不贴出来了，还不是很方便使用，其他大型扩展，比如课程系统等等复杂单场景，如果开发了，会以后台扩展的形式安装 |
 
-### 六、致谢（排名不分先后）
+### 六、开源致谢（排名不分先后）
 laravel   
 uniapp   
 elastic search   
