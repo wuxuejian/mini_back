@@ -87,7 +87,7 @@
      * @param {Object} editor  编辑器对象
      * @returns videoUploadService 对象
      */
-    window.UEDITOR_CONFIG['videoUploadService'] = function(context, editor) {
+    editor.options['videoUploadService'] = function(context, editor) {
         return {
             /**
              * 触发fileQueued事件时执行
@@ -140,7 +140,7 @@
      * @param {Object} editor  编辑器对象
      * @returns scrawlUploadService 对象
      */
-    window.UEDITOR_CONFIG['scrawlUploadService'] = function(context, editor) {
+    editor.options['scrawlUploadService'] = function(context, editor) {
         return scrawlUploadService = {
             /**
              * 点击涂鸦模态框确认按钮时触发
@@ -201,7 +201,7 @@
      * @param {Object} editor  编辑器对象
      * @returns fileUploadService 对象
      */
-    window.UEDITOR_CONFIG['fileUploadService'] = function(context, editor) {
+    editor.options['fileUploadService'] = function(context, editor) {
         return {
             /**
              * 触发fileQueued事件时执行
@@ -247,7 +247,7 @@
             fileSrcField: 'url'
         }
     };
-    
+
 </script>
 
 <style>
