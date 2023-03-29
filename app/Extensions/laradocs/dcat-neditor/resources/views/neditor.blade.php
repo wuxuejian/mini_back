@@ -130,7 +130,7 @@
             /* 指定上传接口返回的response中视频路径的字段，默认为 url
              * 如果视频路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
              * */
-            videoSrcField: 'url'
+            videoSrcField: 'data.url'
         }
     };
 
@@ -183,7 +183,7 @@
                     /* 指定上传接口返回的response中涂鸦图片路径的字段，默认为 url
                      * 如果涂鸦图片路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
                      */
-                    res.scrawlSrcField = 'url';
+                    res.scrawlSrcField = 'data.url'
 
                     /* 上传成功 */
                     success.call(context, res);
@@ -244,7 +244,7 @@
             /* 指定上传接口返回的response中附件路径的字段，默认为 url
              * 如果附件路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
              * */
-            fileSrcField: 'url'
+            fileSrcField: 'data.url'
         }
     };
 
