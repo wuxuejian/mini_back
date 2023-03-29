@@ -125,7 +125,7 @@
              * @returns {Boolean} 上传接口返回的response成功状态条件 (比如: res.code == 200)
              */
             getResponseSuccess: function(res) {
-                return res.code == 200;
+                return res.status == true;
             },
             /* 指定上传接口返回的response中视频路径的字段，默认为 url
              * 如果视频路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
@@ -178,7 +178,7 @@
                     var res = JSON.parse(res);
 
                     /* 上传接口返回的response成功状态条件 (比如: res.code == 200) */
-                    res.responseSuccess = res.code == 200;
+                    res.responseSuccess = res.status == true;
 
                     /* 指定上传接口返回的response中涂鸦图片路径的字段，默认为 url
                      * 如果涂鸦图片路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
@@ -239,7 +239,7 @@
              * @returns {Boolean} 上传接口返回的response成功状态条件 (比如: res.code == 200)
              */
             getResponseSuccess: function(res) {
-                return res.code == 200;
+                return res.status == true;
             },
             /* 指定上传接口返回的response中附件路径的字段，默认为 url
              * 如果附件路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
