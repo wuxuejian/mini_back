@@ -28,16 +28,33 @@
                                 <h6 class="text-muted">
                                     {{ \App\Wen\Utils\Settings::get('about_title') }}</h6>
                                 <div class="mt-80 d-flex">
-                                    <button data-trigger="hover" data-placement="top" data-toggle="popovergzh"
-                                            class="btn bg-primary text-white btn-wx-box" type="submit">
-                                        <img class="mr-5" src="/assets/shuixing/imgs/icon/wechat-fill.svg"/>
-                                        公众号
-                                    </button>
-                                    <button data-trigger="hover" data-placement="top" data-toggle="popoverxcx"
-                                            class="btn bg-primary text-white btn-wx-box ml-15" type="submit">
-                                        <img class="mr-5" src="/assets/shuixing/imgs/icon/xcx-xicon.svg"/>
-                                        小程序
-                                    </button>
+                                    @foreach($qrcodes as $code)
+                                        @if($code == 'app')
+                                            <button data-trigger="hover" data-placement="top" data-toggle="popoverapp"
+                                                    class="btn bg-primary text-white btn-wx-box" type="submit">
+                                                <img class="mr-5" src="/assets/shuixing/imgs/icon/app1.svg"/>
+                                                App
+                                            </button>
+                                        @elseif($code == 'mp')
+                                            <button data-trigger="hover" data-placement="top" data-toggle="popovergzh"
+                                                    class="btn bg-primary text-white btn-wx-box" type="submit">
+                                                <img class="mr-5" src="/assets/shuixing/imgs/icon/wechat-fill.svg"/>
+                                                公众号
+                                            </button>
+                                        @elseif($code == 'mini')
+                                            <button data-trigger="hover" data-placement="top" data-toggle="popoverxcx"
+                                                    class="btn bg-primary text-white btn-wx-box ml-15" type="submit">
+                                                <img class="mr-5" src="/assets/shuixing/imgs/icon/xcx-xicon.svg"/>
+                                                小程序
+                                            </button>
+                                        @elseif($code == 'douyin')
+                                            <button data-trigger="hover" data-placement="top" data-toggle="popoverdy"
+                                                    class="btn bg-primary text-white btn-wx-box ml-15" type="submit">
+                                                <img class="mr-5" src="/assets/shuixing/imgs/icon/douyin.svg"/>
+                                                抖音
+                                            </button>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="col-lg-6 pl-60 text-right d-none d-lg-block">

@@ -366,6 +366,12 @@
             container: "body",
             content: "<img class='img-popover' src='{{ \App\Wen\Utils\Settings::get('app_mp_code') }}' />",
         });
+        $("[data-toggle='popoverapp']").popover({
+            animation: true,
+            html: true,
+            container: "body",
+            content: "<img class='img-popover' src='{{ \App\Wen\Utils\Settings::get('app_app_code') }}' />",
+        });
     });
 </script>
 @section('js')
