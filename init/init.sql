@@ -11,7 +11,7 @@
  Target Server Version : 50718
  File Encoding         : 65001
 
- Date: 09/03/2023 18:04:16
+ Date: 10/04/2023 09:58:37
 */
 
 SET NAMES utf8mb4;
@@ -86,7 +86,7 @@ CREATE TABLE `admin_menu`  (
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of admin_menu
@@ -169,6 +169,19 @@ INSERT INTO `admin_menu` VALUES (112, 0, 1003, '定时任务', 'fa-gears', '', '
 INSERT INTO `admin_menu` VALUES (113, 112, 1004, '任务列表', 'fa-tasks', 'auth/crontabs', 'jyil.crontab', 1, '2023-03-06 18:38:51', '2023-03-06 18:38:51');
 INSERT INTO `admin_menu` VALUES (114, 112, 1005, '日志列表', 'fa-file-text-o', 'auth/crontab-logs', 'jyil.crontab', 1, '2023-03-06 18:38:51', '2023-03-06 18:38:51');
 INSERT INTO `admin_menu` VALUES (115, 0, 1006, '活跃系统', 'fa-paw', 'settings/robot', '', 1, '2023-03-08 15:22:38', '2023-03-08 15:22:38');
+INSERT INTO `admin_menu` VALUES (116, 60, 1007, '发布', NULL, 'settings/publish', '', 1, '2023-03-12 16:09:45', '2023-03-12 16:09:45');
+INSERT INTO `admin_menu` VALUES (117, 8, 1008, '内容源', NULL, 'settings/contents', '', 1, '2023-03-12 16:09:45', '2023-03-12 16:09:45');
+INSERT INTO `admin_menu` VALUES (118, 60, 1009, '管理端', NULL, '/settings/admin', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (119, 60, 1010, '圈子', NULL, '/settings/circle', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (120, 0, 1011, '实时热榜', 'fa-bomb', NULL, '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (121, 120, 1012, '帖子', NULL, '/realtime/post', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (122, 120, 1013, '话题', NULL, '/realtime/topic', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (123, 120, 1014, '圈子', NULL, '/realtime/circle', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (124, 120, 1015, '用户', NULL, '/realtime/user', '', 1, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (125, 120, 1016, '板块', NULL, '/realtime/plate', '', 0, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (126, 120, 1017, '商品', NULL, '/realtime/goods', '', 0, '2023-03-22 23:34:57', '2023-03-22 23:34:57');
+INSERT INTO `admin_menu` VALUES (127, 60, 1018, '广告', NULL, '/settings/ad', '', 1, '2023-04-03 14:03:48', '2023-04-03 14:03:48');
+INSERT INTO `admin_menu` VALUES (128, 60, 1019, '我的', NULL, '/settings/pagemine', '', 1, '2023-04-09 20:32:33', '2023-04-09 20:32:33');
 
 -- ----------------------------
 -- Table structure for admin_permission_menu
@@ -1361,6 +1374,7 @@ CREATE TABLE `wx_comment`  (
   `comment_id` int(11) NULL DEFAULT NULL COMMENT '评论的评论ID',
   `is_sticky` tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否置顶',
   `comment_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态：0:审核中，1:审核通过，2:驳回',
+  `device` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '客户端',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -1375,8 +1389,8 @@ CREATE TABLE `wx_comment`  (
 -- ----------------------------
 -- Records of wx_comment
 -- ----------------------------
-INSERT INTO `wx_comment` VALUES (260, 385, 11584, 11592, '神经蛙', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM7bdUpibTTYyPw2JLDuT1ZGtwl12ibFtQzyWQbzJroiczLEibyKtUNcSGUhXlyatF6iaZIFauOiaDib4EAzA/132', NULL, NULL, NULL, '哈哈哈', 'https://img.mini.chongyeapp.com/2022/09/08/abaf29e5c1f1d8b2da6f228da1ed04ce.png', NULL, 0, 1, NULL, '2022-09-08 21:58:34', '2022-09-27 10:10:18');
-INSERT INTO `wx_comment` VALUES (261, 385, 11584, 11599, '明祥', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM4B3P676wS2amBicEFPSo1icuBdwAJzTicBmYWouJCXk8oib7qzJZ9zTOqG8dicMwhbXGnLeic8kxEibR7xg/132', NULL, NULL, NULL, 'gvv', NULL, NULL, 0, 1, NULL, '2022-09-11 16:14:24', '2022-09-27 09:46:20');
+INSERT INTO `wx_comment` VALUES (260, 385, 11584, 11592, '神经蛙', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM7bdUpibTTYyPw2JLDuT1ZGtwl12ibFtQzyWQbzJroiczLEibyKtUNcSGUhXlyatF6iaZIFauOiaDib4EAzA/132', NULL, NULL, NULL, '哈哈哈', 'https://img.mini.chongyeapp.com/2022/09/08/abaf29e5c1f1d8b2da6f228da1ed04ce.png', NULL, 0, 1, NULL, NULL, '2022-09-08 21:58:34', '2022-09-27 10:10:18');
+INSERT INTO `wx_comment` VALUES (261, 385, 11584, 11599, '明祥', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q3auHgzwzM4B3P676wS2amBicEFPSo1icuBdwAJzTicBmYWouJCXk8oib7qzJZ9zTOqG8dicMwhbXGnLeic8kxEibR7xg/132', NULL, NULL, NULL, 'gvv', NULL, NULL, 0, 1, NULL, NULL, '2022-09-11 16:14:24', '2022-09-27 09:46:20');
 
 -- ----------------------------
 -- Table structure for wx_comment_like
@@ -1432,6 +1446,25 @@ CREATE TABLE `wx_comment_meta_str`  (
 
 -- ----------------------------
 -- Records of wx_comment_meta_str
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for wx_degree_increment
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_degree_increment`;
+CREATE TABLE `wx_degree_increment`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `object_id` bigint(20) NOT NULL COMMENT '目标id',
+  `type` tinyint(4) NOT NULL COMMENT '类型（1:帖子 2:圈子 3:商品 4:用户 5:标签）',
+  `degree_increment` decimal(8, 2) NOT NULL COMMENT '热度增量',
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `index_0`(`object_id`, `type`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wx_degree_increment
 -- ----------------------------
 
 -- ----------------------------
@@ -2150,43 +2183,48 @@ CREATE TABLE `wx_post_meta_str`  (
 DROP TABLE IF EXISTS `wx_posts`;
 CREATE TABLE `wx_posts`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '帖子内容',
+  `posts_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '帖子内容',
   `user_id` int(11) NULL DEFAULT 0 COMMENT '用户ID',
+  `pay_content_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '付费id',
   `circle_id` int(20) NULL DEFAULT 0 COMMENT '圈子ID',
   `circle_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '圈子名称',
   `address_id` int(1) NULL DEFAULT 0 COMMENT '位置ID',
   `tags_id` int(1) NULL DEFAULT 0 COMMENT '标签ID（可多标签用,隔开）',
+  `img_count` tinyint(3) UNSIGNED NOT NULL DEFAULT 0 COMMENT '图片数量',
   `is_information` tinyint(1) NULL DEFAULT 0 COMMENT '热榜(0否，1是)',
   `is_examine` tinyint(1) NULL DEFAULT 0 COMMENT '审核状态(0待审核，1审核通过，2驳回)',
   `overrule_content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '驳回原因',
   `overrule_is_read` tinyint(1) NULL DEFAULT 0 COMMENT '驳回用户是否已读(0未读，1已读)',
   `posts_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户删除，2管理员下架)',
+  `device` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '客户端',
   `is_sticky` tinyint(3) NULL DEFAULT 0 COMMENT '是否置顶',
   `is_reward` tinyint(1) NULL DEFAULT 1 COMMENT '是否开启打赏',
   `is_blur` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '图片高斯模糊',
   `weight` timestamp(0) NOT NULL DEFAULT '2022-12-09 14:18:00' COMMENT '计算热度',
+  `degree` double(8, 2) NOT NULL DEFAULT 0.00 COMMENT '实时热度',
   `last_reply_at` timestamp(0) NOT NULL DEFAULT '2022-12-09 14:18:00' COMMENT '最后回复时间',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `index_0`(`user_id`) USING BTREE,
-  INDEX `index_1`(`circle_id`) USING BTREE
+  INDEX `index_1`(`circle_id`) USING BTREE,
+  INDEX `index_2`(`pay_content_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 396 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '帖子(动态)表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wx_posts
 -- ----------------------------
-INSERT INTO `wx_posts` VALUES (384, '<a href=\"https://chongyeapp.com\">测试</a> <a href=\"https://asdf\">asf</a>哈哈哈测试', 11584, 32, '守宫日常', 33, 0, 1, 1, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-09-04 03:19:29', '2022-10-10 01:56:57');
-INSERT INTO `wx_posts` VALUES (385, '111', 11584, 41, '奋斗兔', 0, 0, 1, 1, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-09-05 09:39:13', '2022-10-10 01:56:57');
-INSERT INTO `wx_posts` VALUES (386, 'asdfsadsfasdfasdfsdf', 10001, 24, '喵生大事', 20, 0, 0, 1, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-09-07 12:18:20', '2022-10-10 01:56:57');
-INSERT INTO `wx_posts` VALUES (387, 'dsfasdfasd', 11581, 25, '喵生活仪式感', 8, 0, 0, 1, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-09-07 12:22:50', '2022-10-10 01:56:57');
-INSERT INTO `wx_posts` VALUES (390, '哈哈哈哈哈哈，终于完成了', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:23:50', '2022-10-11 01:23:50');
-INSERT INTO `wx_posts` VALUES (391, '真的完成了吗', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:31:01', '2022-10-11 01:31:01');
-INSERT INTO `wx_posts` VALUES (392, '打扫房间奥斯卡了的疯狂拉水电费', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:37:05', '2022-10-11 01:37:05');
-INSERT INTO `wx_posts` VALUES (393, '打赏了会计法啥地方叫阿斯拉达', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:38:48', '2022-10-11 01:38:48');
-INSERT INTO `wx_posts` VALUES (394, '大飞机阿克苏砥砺奋进奥斯卡劳动法', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:42:29', '2022-10-11 01:42:29');
-INSERT INTO `wx_posts` VALUES (395, '挂号费还很多风格的观点看看', 11583, 44, '日常问答', 0, 0, 0, 0, '0', 0, 0, 0, 1, '0', '2022-12-09 14:18:00', '2022-12-09 14:18:00', NULL, '2022-10-11 01:44:08', '2022-10-11 01:44:08');
+INSERT INTO `wx_posts` VALUES (384, '<a href=\"https://chongyeapp.com\">测试</a> <a href=\"https://asdf\">asf</a>哈哈哈测试', 11584, 0, 32, '守宫日常', 33, 0, 0, 1, 1, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-09-04 03:19:29', '2022-10-10 01:56:57');
+INSERT INTO `wx_posts` VALUES (385, '111', 11584, 0, 41, '奋斗兔', 0, 0, 0, 1, 1, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-09-05 09:39:13', '2022-10-10 01:56:57');
+INSERT INTO `wx_posts` VALUES (386, 'asdfsadsfasdfasdfsdf', 10001, 0, 24, '喵生大事', 20, 0, 0, 0, 1, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-09-07 12:18:20', '2022-10-10 01:56:57');
+INSERT INTO `wx_posts` VALUES (387, 'dsfasdfasd', 11581, 0, 25, '喵生活仪式感', 8, 0, 0, 0, 1, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-09-07 12:22:50', '2022-10-10 01:56:57');
+INSERT INTO `wx_posts` VALUES (390, '哈哈哈哈哈哈，终于完成了', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:23:50', '2022-10-11 01:23:50');
+INSERT INTO `wx_posts` VALUES (391, '真的完成了吗', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:31:01', '2022-10-11 01:31:01');
+INSERT INTO `wx_posts` VALUES (392, '打扫房间奥斯卡了的疯狂拉水电费', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:37:05', '2022-10-11 01:37:05');
+INSERT INTO `wx_posts` VALUES (393, '打赏了会计法啥地方叫阿斯拉达', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:38:48', '2022-10-11 01:38:48');
+INSERT INTO `wx_posts` VALUES (394, '大飞机阿克苏砥砺奋进奥斯卡劳动法', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:42:29', '2022-10-11 01:42:29');
+INSERT INTO `wx_posts` VALUES (395, '挂号费还很多风格的观点看看', 11583, 0, 44, '日常问答', 0, 0, 0, 0, 0, '0', 0, 0, NULL, 0, 1, '0', '2022-12-09 14:18:00', 0.00, '2022-12-09 14:18:00', NULL, '2022-10-11 01:44:08', '2022-10-11 01:44:08');
 
 -- ----------------------------
 -- Table structure for wx_posts_address
@@ -2299,6 +2337,30 @@ INSERT INTO `wx_posts_img` VALUES (373, 386, 10001, 'https://img.mini.chongyeapp
 INSERT INTO `wx_posts_img` VALUES (374, 386, 10001, 'https://img.mini.chongyeapp.com/2022/09/07/4631ba014409dd8499870029c88e393e.jpg', 0, NULL, NULL, NULL);
 INSERT INTO `wx_posts_img` VALUES (380, 390, 11583, 'https://img.mini.chongyeapp.com/2022/10/11/3f4ce2678ff6874587ece135fa69e8ce.png', 0, NULL, NULL, NULL);
 INSERT INTO `wx_posts_img` VALUES (381, 392, 11583, 'https://img.mini.chongyeapp.com/2022/10/11/cccb7add07d53608711caccb3916bf21.png', 0, NULL, NULL, NULL);
+
+-- ----------------------------
+-- Table structure for wx_posts_pay_content
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_posts_pay_content`;
+CREATE TABLE `wx_posts_pay_content`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `post_id` bigint(20) NOT NULL COMMENT '帖子id',
+  `words_percent` tinyint(4) NOT NULL DEFAULT 100 COMMENT '字数百分比',
+  `is_file` tinyint(4) NOT NULL DEFAULT 0 COMMENT '附件付费',
+  `is_sound` tinyint(4) NOT NULL DEFAULT 0 COMMENT '音频付费',
+  `hidden` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '隐藏内容',
+  `price` double(8, 2) NOT NULL DEFAULT 0.00 COMMENT '价格',
+  `credit_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0：金币 1：余额',
+  `deleted_at` timestamp(0) NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `index_0`(`post_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wx_posts_pay_content
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for wx_posts_tags
@@ -2566,6 +2628,7 @@ CREATE TABLE `wx_settings`  (
 -- ----------------------------
 -- Records of wx_settings
 -- ----------------------------
+INSERT INTO `wx_settings` VALUES ('_system_inited', '-1');
 INSERT INTO `wx_settings` VALUES ('--color-danger', '#E3363E');
 INSERT INTO `wx_settings` VALUES ('--color-dark', '#000C2D');
 INSERT INTO `wx_settings` VALUES ('--color-grey', '#F7F8F9');
@@ -3200,7 +3263,7 @@ CREATE TABLE `wx_slideshow`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `poster` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '轮播图',
   `sort` int(11) NULL DEFAULT 0 COMMENT '排序',
-  `target_id` bigint(20) NULL DEFAULT 0 COMMENT '跳转ID',
+  `target_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '跳转ID',
   `slideshow_type` tinyint(1) NULL DEFAULT 0 COMMENT '类型(0链接，1帖子，2圈子，3商品)',
   `slideshow_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0启用，1关闭)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -3212,8 +3275,8 @@ CREATE TABLE `wx_slideshow`  (
 -- ----------------------------
 -- Records of wx_slideshow
 -- ----------------------------
-INSERT INTO `wx_slideshow` VALUES (30, 'https://img.mini.chongyeapp.com/2022/09/09/c91155bf69ad33166f283d9a66a2b370.jpg', 1, 384, 1, 1, NULL, '2022-01-11 10:44:13', '2022-09-19 01:39:20');
-INSERT INTO `wx_slideshow` VALUES (32, 'https://img.mini.chongyeapp.com/2022/09/09/e6f3921629b4ddcfc33d755b6f3d0276.jpg', 2, 1044, 3, 1, NULL, '2022-01-12 13:49:36', '2022-09-19 01:38:48');
+INSERT INTO `wx_slideshow` VALUES (30, 'https://img.mini.chongyeapp.com/2022/09/09/c91155bf69ad33166f283d9a66a2b370.jpg', 1, '384', 1, 1, NULL, '2022-01-11 10:44:13', '2022-09-19 01:39:20');
+INSERT INTO `wx_slideshow` VALUES (32, 'https://img.mini.chongyeapp.com/2022/09/09/e6f3921629b4ddcfc33d755b6f3d0276.jpg', 2, '1044', 3, 1, NULL, '2022-01-12 13:49:36', '2022-09-19 01:38:48');
 
 -- ----------------------------
 -- Table structure for wx_sounds
@@ -3689,11 +3752,34 @@ DROP TABLE IF EXISTS `wx_user_online`;
 CREATE TABLE `wx_user_online`  (
   `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `online` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0) ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '在线时间',
+  `device` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '客户端',
   PRIMARY KEY (`user_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of wx_user_online
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for wx_user_pay
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_user_pay`;
+CREATE TABLE `wx_user_pay`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `post_id` bigint(20) NOT NULL COMMENT '帖子id',
+  `pay_content_id` bigint(20) NOT NULL COMMENT 'pay_content_id',
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `index_3`(`user_id`, `post_id`, `pay_content_id`) USING BTREE,
+  INDEX `index_0`(`user_id`) USING BTREE,
+  INDEX `index_1`(`post_id`) USING BTREE,
+  INDEX `index_2`(`pay_content_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wx_user_pay
 -- ----------------------------
 
 -- ----------------------------
@@ -3821,6 +3907,26 @@ CREATE TABLE `wx_user_temp`  (
 INSERT INTO `wx_user_temp` VALUES (10006, 10000, '李梓晨', 'https://thirdwx.qlogo.cn/mmopen/vi_32/N5u8OWT5HUMpFicvYO8yE5gfnMzbllv8ica7gqiaT1OYFVdz6NTz0mcIRsmKs06sOkl0spcKl7o0tdb5fYYmXpdibA/132', 'https://qinghang-1305480232.cos.ap-guangzhou.myqcloud.com/2021/04/29/c25b4e264f3d265397cf3f525998f549.jpg', '', '请选择', '', 0, '2021-04-29 16:54:22', '2021-04-29 16:51:48', '2021-04-29 16:54:22');
 INSERT INTO `wx_user_temp` VALUES (10015, 10001, '🤡✌(̿▀̿ ̿Ĺ̯̿̿▀̿ ̿)✌', 'https://qinghang-1305480232.cos.ap-guangzhou.myqcloud.com/2021/04/27/2c259a69c74fbc1ea468a5d25589c0ee.jpg', 'https://qinghang-1305480232.cos.ap-guangzhou.myqcloud.com/2021/04/23/a507ad9bec8e05716b46c901bb424c08.jpg', '', '请选择', '', 1, NULL, '2021-05-04 17:01:32', '2021-05-04 17:01:56');
 INSERT INTO `wx_user_temp` VALUES (10036, 11585, '邵闻', 'https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLaPOfdmIVia9zAgaC2ZaaGD6SvYtMIzicav3MUtHmCA2oYqar0ky2ckicbNJg8ZhUiaoFUaMvUQwGhFw/132', 'https://img.mini.chongyeapp.com/2022/09/09/ef0d63eeee85538d32a07cbace1b8204.jpg', '测试测试', '请选择', '', 0, NULL, '2022-09-09 02:36:29', '2022-09-09 02:36:29');
+
+-- ----------------------------
+-- Table structure for wx_user_visit
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_user_visit`;
+CREATE TABLE `wx_user_visit`  (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `type` tinyint(4) NOT NULL COMMENT '类型（1:帖子 2:圈子 3:商品 4:用户 5:标签）',
+  `object_id` bigint(20) NOT NULL COMMENT '目标id',
+  `times` bigint(20) NOT NULL COMMENT '次数',
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `index_0`(`user_id`, `type`, `object_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of wx_user_visit
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for wx_user_vote
