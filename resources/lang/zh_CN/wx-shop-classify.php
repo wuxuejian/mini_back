@@ -12,6 +12,9 @@ return [
         'parent_id' => '父级id',
         'sort' => '排序',
         'state' => '状态',
+        'in_h5' => 'h5',
+        'in_app' => 'app',
+        'in_mp' => '小程序',
     ],
     'options' => [
     ],
