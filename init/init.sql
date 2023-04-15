@@ -11,7 +11,7 @@
  Target Server Version : 50718
  File Encoding         : 65001
 
- Date: 10/04/2023 09:58:37
+ Date: 15/04/2023 22:34:31
 */
 
 SET NAMES utf8mb4;
@@ -139,7 +139,6 @@ INSERT INTO `admin_menu` VALUES (54, 51, 10, '常规', NULL, 'settings/pc', '', 
 INSERT INTO `admin_menu` VALUES (59, 8, 4, '菜单', NULL, 'settings/menu', '', 1, '2022-09-16 00:26:17', '2022-09-16 15:49:28');
 INSERT INTO `admin_menu` VALUES (60, 0, 7, '移动端', 'fa-wechat', NULL, '', 1, '2022-09-16 00:38:14', '2023-03-06 17:37:14');
 INSERT INTO `admin_menu` VALUES (61, 60, 8, '常规', NULL, 'settings/miniprogram', '', 1, '2022-09-16 00:40:44', '2022-09-16 15:50:05');
-INSERT INTO `admin_menu` VALUES (62, 18, 15, '热门', NULL, '/settings/hot', '', 1, '2022-09-19 13:45:44', '2022-09-19 13:55:21');
 INSERT INTO `admin_menu` VALUES (63, 36, 52, '退款', NULL, '/shop/refund', '', 1, '2023-03-06 17:37:14', '2023-03-06 17:37:14');
 INSERT INTO `admin_menu` VALUES (64, 8, 53, '支付', NULL, '/settings/pay', '', 1, '2023-03-06 17:37:14', '2023-03-06 17:37:14');
 INSERT INTO `admin_menu` VALUES (65, 60, 54, 'App', NULL, '/settings/app', '', 1, '2023-03-06 17:37:14', '2023-03-06 17:37:14');
@@ -1123,7 +1122,7 @@ INSERT INTO `wx_authentication` VALUES (23, 10001, 'bilibili UP主认证', '一�
 DROP TABLE IF EXISTS `wx_chat`;
 CREATE TABLE `wx_chat`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '用户ID',
+  `user_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '用户ID',
   `object_id` int(20) NOT NULL DEFAULT 0 COMMENT '对象ID',
   `chat_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '聊天内容',
   `chat_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '聊天图片',
@@ -1234,7 +1233,7 @@ CREATE TABLE `wx_circle`  (
   `head_portrait` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '圈子头像',
   `background_maps` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '' COMMENT '圈子名称',
   `plate_id` int(1) NULL DEFAULT 0 COMMENT '板块ID',
-  `user_id` int(11) NULL DEFAULT 0 COMMENT '圈主ID',
+  `user_id` bigint(20) NULL DEFAULT 0 COMMENT '圈主ID',
   `is_top_recommend` tinyint(1) NULL DEFAULT 0 COMMENT '圈子页顶部推荐(0否，1是)',
   `is_hot` tinyint(1) NULL DEFAULT 0 COMMENT '热门圈子(0否，1是)',
   `circle_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0审核中，1正常，2驳回)',
@@ -1334,9 +1333,9 @@ INSERT INTO `wx_clause` VALUES (24, '充电声明', '<h1 style=\"margin: 0cm; te
 DROP TABLE IF EXISTS `wx_collect`;
 CREATE TABLE `wx_collect`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '帖子ID',
-  `posts_user_id` int(11) NOT NULL COMMENT '帖子用户id',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子ID',
+  `posts_user_id` bigint(20) NOT NULL COMMENT '帖子用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -1361,17 +1360,17 @@ INSERT INTO `wx_collect` VALUES (118, 385, 11584, 11603, NULL, '2022-09-19 18:07
 DROP TABLE IF EXISTS `wx_comment`;
 CREATE TABLE `wx_comment`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '文章ID',
-  `posts_user_id` int(11) NOT NULL COMMENT '文章用户id',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '文章ID',
+  `posts_user_id` bigint(20) NOT NULL COMMENT '文章用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `user_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户名称',
   `user_avatar` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户头像',
-  `comment_agent_id` int(11) NULL DEFAULT NULL COMMENT '回复用户ID',
+  `comment_agent_id` bigint(20) NULL DEFAULT NULL COMMENT '回复用户ID',
   `comment_agent_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '回复用户名称',
   `comment_agent_avatar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '回复用户头像',
   `comment_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '评论内容',
   `comment_img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '评论图片',
-  `comment_id` int(11) NULL DEFAULT NULL COMMENT '评论的评论ID',
+  `comment_id` bigint(20) NULL DEFAULT NULL COMMENT '评论的评论ID',
   `is_sticky` tinyint(4) NOT NULL DEFAULT 0 COMMENT '是否置顶',
   `comment_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态：0:审核中，1:审核通过，2:驳回',
   `device` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '客户端',
@@ -1398,9 +1397,9 @@ INSERT INTO `wx_comment` VALUES (261, 385, 11584, 11599, '明祥', 'https://thir
 DROP TABLE IF EXISTS `wx_comment_like`;
 CREATE TABLE `wx_comment_like`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
-  `comment_id` int(11) NOT NULL COMMENT '评论id',
-  `comment_user_id` int(11) NOT NULL COMMENT '评论用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `comment_id` bigint(20) NOT NULL COMMENT '评论id',
+  `comment_user_id` bigint(20) NOT NULL COMMENT '评论用户id',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -1501,7 +1500,7 @@ INSERT INTO `wx_exceptional` VALUES (51, 10001, 135, 10000, 0.10, NULL, '2021-05
 DROP TABLE IF EXISTS `wx_feedback`;
 CREATE TABLE `wx_feedback`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `feedback_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '反馈类型',
   `feedback_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '反馈内容',
   `feedback_reply` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '受理回复',
@@ -1549,9 +1548,9 @@ CREATE TABLE `wx_files`  (
 DROP TABLE IF EXISTS `wx_forward`;
 CREATE TABLE `wx_forward`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '帖子ID',
-  `posts_user_id` int(11) NOT NULL COMMENT '帖子用户id',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子ID',
+  `posts_user_id` bigint(20) NOT NULL COMMENT '帖子用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `is_read` tinyint(11) NOT NULL DEFAULT 0 COMMENT '读(0未读，1已读)',
   `forward_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0未受理，1已受理)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -1597,9 +1596,9 @@ CREATE TABLE `wx_icons`  (
 DROP TABLE IF EXISTS `wx_like`;
 CREATE TABLE `wx_like`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '文章ID',
-  `posts_user_id` int(11) NOT NULL COMMENT '文章用户id',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '文章ID',
+  `posts_user_id` bigint(20) NOT NULL COMMENT '文章用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -1963,8 +1962,8 @@ INSERT INTO `wx_navigation_plate` VALUES (40, '设计规范', 'design specificat
 DROP TABLE IF EXISTS `wx_notice`;
 CREATE TABLE `wx_notice`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '用户ID',
-  `posts_id` int(11) NULL DEFAULT 0 COMMENT '帖子ID',
+  `user_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '用户ID',
+  `posts_id` bigint(20) NULL DEFAULT 0 COMMENT '帖子ID',
   `order_id` int(11) NULL DEFAULT 0 COMMENT '订单ID',
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '标题',
   `content` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '内容',
@@ -2184,7 +2183,7 @@ DROP TABLE IF EXISTS `wx_posts`;
 CREATE TABLE `wx_posts`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `posts_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '帖子内容',
-  `user_id` int(11) NULL DEFAULT 0 COMMENT '用户ID',
+  `user_id` bigint(20) NULL DEFAULT 0 COMMENT '用户ID',
   `pay_content_id` bigint(20) NOT NULL DEFAULT 0 COMMENT '付费id',
   `circle_id` int(20) NULL DEFAULT 0 COMMENT '圈子ID',
   `circle_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '圈子名称',
@@ -2285,8 +2284,8 @@ INSERT INTO `wx_posts_address` VALUES (34, '贵州省贵阳市云岩区黔东社
 DROP TABLE IF EXISTS `wx_posts_goods`;
 CREATE TABLE `wx_posts_goods`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '帖子ID',
-  `goods_id` int(11) NOT NULL COMMENT '商品ID',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子ID',
+  `goods_id` bigint(20) NOT NULL COMMENT '商品ID',
   `type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '类型（0：words 1:single）',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -2318,8 +2317,8 @@ INSERT INTO `wx_posts_goods` VALUES (15, 387, 1044, 0, NULL, NULL, NULL);
 DROP TABLE IF EXISTS `wx_posts_img`;
 CREATE TABLE `wx_posts_img`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '帖子id',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `img_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '图片地址',
   `posts_img_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户删除，2管理员下架)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -2368,8 +2367,8 @@ CREATE TABLE `wx_posts_pay_content`  (
 DROP TABLE IF EXISTS `wx_posts_tags`;
 CREATE TABLE `wx_posts_tags`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `posts_id` int(11) NOT NULL COMMENT '帖子ID',
-  `tags_id` int(11) NOT NULL COMMENT '标签ID',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子ID',
+  `tags_id` bigint(20) NOT NULL COMMENT '标签ID',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -2399,8 +2398,8 @@ INSERT INTO `wx_posts_tags` VALUES (323, 395, 71, NULL, NULL, NULL);
 DROP TABLE IF EXISTS `wx_posts_video`;
 CREATE TABLE `wx_posts_video`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
-  `posts_id` int(11) NOT NULL COMMENT '帖子id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `posts_id` bigint(20) NOT NULL COMMENT '帖子id',
   `video_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '简介',
   `video_thumb_url` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '视频封面',
   `posts_video_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户删除，2管理员下架)',
@@ -2484,11 +2483,11 @@ CREATE TABLE `wx_questions`  (
 DROP TABLE IF EXISTS `wx_refund`;
 CREATE TABLE `wx_refund`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '退款用户',
-  `order_good_id` int(11) NOT NULL COMMENT '订单商品id',
-  `order_id` int(11) NOT NULL COMMENT '订单id',
-  `goods_id` int(11) NOT NULL COMMENT '商品id',
-  `product_id` int(11) NOT NULL COMMENT '规格id',
+  `user_id` bigint(20) NOT NULL COMMENT '退款用户',
+  `order_good_id` bigint(20) NOT NULL COMMENT '订单商品id',
+  `order_id` bigint(20) NOT NULL COMMENT '订单id',
+  `goods_id` bigint(20) NOT NULL COMMENT '商品id',
+  `product_id` bigint(20) NOT NULL COMMENT '规格id',
   `amount` decimal(10, 2) NOT NULL COMMENT '退回金额',
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -2507,7 +2506,7 @@ CREATE TABLE `wx_refund`  (
 DROP TABLE IF EXISTS `wx_search`;
 CREATE TABLE `wx_search`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `search_content` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '搜索内容',
   `is_hot` tinyint(1) UNSIGNED ZEROFILL NULL DEFAULT 0 COMMENT '是否热门',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -2643,13 +2642,16 @@ INSERT INTO `wx_settings` VALUES ('--color-white', '#FFFFFF');
 INSERT INTO `wx_settings` VALUES ('--mutted-border-color', '#EAECEE');
 INSERT INTO `wx_settings` VALUES ('--primary-border-color', '#9B9B9B');
 INSERT INTO `wx_settings` VALUES ('--secondary-border-color', '#F0F8FF');
-INSERT INTO `wx_settings` VALUES ('about_address', '东莞市东城区xxx');
-INSERT INTO `wx_settings` VALUES ('about_copyright', 'Copyright © 2020 - 现在，东莞市东城友看网络科技有限公司');
+INSERT INTO `wx_settings` VALUES ('about_address', '上海市');
+INSERT INTO `wx_settings` VALUES ('about_adjunct_word', NULL);
+INSERT INTO `wx_settings` VALUES ('about_copyright', 'Copyright © 2020 - 现在，上海市宠也科技有限公司');
 INSERT INTO `wx_settings` VALUES ('about_icp', '粤ICP备2022011211号-1');
 INSERT INTO `wx_settings` VALUES ('about_logo', 'https://img.mini.chongyeapp.com/icons/logo.png');
 INSERT INTO `wx_settings` VALUES ('about_phone', '176-xxxx-8804（同微信）');
+INSERT INTO `wx_settings` VALUES ('about_qq', '863627472');
 INSERT INTO `wx_settings` VALUES ('about_sms', '863627472@qq.com');
 INSERT INTO `wx_settings` VALUES ('about_title', '宠也 - 养宠上宠也');
+INSERT INTO `wx_settings` VALUES ('about_user_called', '铲屎官');
 INSERT INTO `wx_settings` VALUES ('admin_auth_code', 'asldfafksdzodfansdkfjhashfas');
 INSERT INTO `wx_settings` VALUES ('admin_auth_map', '[{\"id\":\"map001\",\"circleMap\":{\"44\":\"139\"},\"goodsClassMap\":{\"1\":\"198,197\",\"2\":\"205,199\",\"4\":\"206,200\",\"5\":\"925,923,207,201\",\"6\":\"208,202\",\"9\":\"209,203\",\"10\":\"210,204\",\"11\":\"761,762,924\",\"12\":\"764,763\"}}]');
 INSERT INTO `wx_settings` VALUES ('admin_content_source1', '[{\"url\":\"https:\\/\\/test.chongyeapp.com\",\"safe\":\"shaowen=meinanzi999\",\"needSync\":\"1\",\"map\":\"map001\"}]');
@@ -2659,6 +2661,7 @@ INSERT INTO `wx_settings` VALUES ('admin_sync_ls_url', NULL);
 INSERT INTO `wx_settings` VALUES ('app_app_code', 'https://img.chongyeapp.com/qrcode/app.png');
 INSERT INTO `wx_settings` VALUES ('app_circles_banner', NULL);
 INSERT INTO `wx_settings` VALUES ('app_douyin_code', 'https://img.chongyeapp.com/qrcode/app.png');
+INSERT INTO `wx_settings` VALUES ('app_h5_home', 'https://mini.h5.chongyeapp.com');
 INSERT INTO `wx_settings` VALUES ('app_hot_search', '2054,2055,2056,2057,2058,2059,2060,2061,2062,2063,2064,2065,2066,2067');
 INSERT INTO `wx_settings` VALUES ('app_hot_tags', '70,71,72,73');
 INSERT INTO `wx_settings` VALUES ('app_id', 'wx36f527a9499ca325');
@@ -2666,8 +2669,12 @@ INSERT INTO `wx_settings` VALUES ('app_intro', '超多有趣的铲屎官聚集�
 INSERT INTO `wx_settings` VALUES ('app_login_bg', 'https://img.mini.chongyeapp.com/icons/login.jpg');
 INSERT INTO `wx_settings` VALUES ('app_mini_code', 'https://img.chongyeapp.com/qrcode/minipro.jpg');
 INSERT INTO `wx_settings` VALUES ('app_mp_code', 'https://img.chongyeapp.com/pc/gzh_code.jpg');
+INSERT INTO `wx_settings` VALUES ('app_report_safe_times_comment', '0');
+INSERT INTO `wx_settings` VALUES ('app_report_safe_times_goods', '0');
+INSERT INTO `wx_settings` VALUES ('app_report_safe_times_post', '0');
+INSERT INTO `wx_settings` VALUES ('app_report_safe_times_user', '0');
 INSERT INTO `wx_settings` VALUES ('app_search_carousel', '搜索动态/圈子/用户|分享你的养宠生活');
-INSERT INTO `wx_settings` VALUES ('app_secret', 'c1526ee26a5754f021ace99e53f45648');
+INSERT INTO `wx_settings` VALUES ('app_secret', 'c1526ee26a4674f021ace99e53f45648');
 INSERT INTO `wx_settings` VALUES ('app_share_author', '[author_name] - 宠也用户');
 INSERT INTO `wx_settings` VALUES ('app_share_button', '[content] - 宠也');
 INSERT INTO `wx_settings` VALUES ('app_share_circle', '[circle_name] - 宠也圈子');
@@ -2683,20 +2690,33 @@ INSERT INTO `wx_settings` VALUES ('app_shop_banner', '30,32');
 INSERT INTO `wx_settings` VALUES ('app_title', '宠也');
 INSERT INTO `wx_settings` VALUES ('authentication_popup_poster', 'https://img.mini.chongyeapp.com/icons/auth.png');
 INSERT INTO `wx_settings` VALUES ('browser_favicon_ico', 'https://img.mini.chongyeapp.com/icons/favicon.ico');
-INSERT INTO `wx_settings` VALUES ('cosv5', '{\"bucket\":\"mini-chongyeapp\",\"region\":\"ap-nanjing\",\"appId\":\"1309223604\",\"secretId\":\"AKIDSr30jEUUFl23pNl25uUpvlMipgIgppgK\",\"secretKey\":\"e9SWN1Um05yd3EArKbdS3QYR5UeZIrEO\",\"domain\":\"https:\\/\\/img.mini.chongyeapp.com\"}');
+INSERT INTO `wx_settings` VALUES ('cosv5', '{\"bucket\":\"mini-chongyeapp\",\"region\":\"ap-nanjing\",\"appId\":\"1309223604\",\"secretId\":\"AKIDSr30jEUUFl23pNl25uUpvlMipgIgppgK\",\"secretKey\":\"e9SWN1U\",\"domain\":\"https:\\/\\/img.mini.chongyeapp.com\"}');
 INSERT INTO `wx_settings` VALUES ('img_default', 'https://img.mini.chongyeapp.com/icons/dafault.png');
+INSERT INTO `wx_settings` VALUES ('img_default_avatar', 'https://img.mini.chongyeapp.com/images/avatar.png');
+INSERT INTO `wx_settings` VALUES ('img_default_circle_bg', 'https://img.mini.chongyeapp.com/images/topci/bg.jpg');
+INSERT INTO `wx_settings` VALUES ('img_default_topic_avatar', 'https://img.mini.chongyeapp.com/images/topci/avatar.png');
+INSERT INTO `wx_settings` VALUES ('img_default_topic_bg', 'https://img.mini.chongyeapp.com/images/topci/bg.jpg');
+INSERT INTO `wx_settings` VALUES ('img_default_topic_pc_bg', 'https://img.mini.chongyeapp.com/images/topci/bg.jpg');
+INSERT INTO `wx_settings` VALUES ('img_empty', 'https://img.mini.chongyeapp.com/icons/abp.png');
+INSERT INTO `wx_settings` VALUES ('img_share_default', 'https://img.mini.chongyeapp.com/icons/dafault.png');
+INSERT INTO `wx_settings` VALUES ('img_sounds_default', NULL);
 INSERT INTO `wx_settings` VALUES ('img_style', '');
+INSERT INTO `wx_settings` VALUES ('img_video_default', 'https://img.mini.chongyeapp.com/images/video/video_thumbel.png');
 INSERT INTO `wx_settings` VALUES ('is_audit_comment', '0');
 INSERT INTO `wx_settings` VALUES ('is_audit_create_cirlce', '0');
+INSERT INTO `wx_settings` VALUES ('is_audit_create_tag', '0');
 INSERT INTO `wx_settings` VALUES ('is_audit_posts', '0');
 INSERT INTO `wx_settings` VALUES ('is_audit_user_info', '0');
+INSERT INTO `wx_settings` VALUES ('is_auto_back_upgrade', '1');
+INSERT INTO `wx_settings` VALUES ('is_examine_mode', '0');
 INSERT INTO `wx_settings` VALUES ('is_reward', '0');
 INSERT INTO `wx_settings` VALUES ('is_user_center_show_posts', '0');
+INSERT INTO `wx_settings` VALUES ('is_withdrawal', '1');
 INSERT INTO `wx_settings` VALUES ('mch_id', '1604282191');
-INSERT INTO `wx_settings` VALUES ('mch_secret', 'meinanzi999meinanzi999meinanzi99');
+INSERT INTO `wx_settings` VALUES ('mch_secret', '1234567891011121314151617');
 INSERT INTO `wx_settings` VALUES ('members_popup_poster', 'https://img.mini.chongyeapp.com/icons/vip.png');
 INSERT INTO `wx_settings` VALUES ('members_poster', 'https://img.mini.chongyeapp.com/icons/vip_introduce.png');
-INSERT INTO `wx_settings` VALUES ('members_price', '9.9');
+INSERT INTO `wx_settings` VALUES ('members_price', '0.01');
 INSERT INTO `wx_settings` VALUES ('official_popup_poster', 'https://img.mini.chongyeapp.com/icons/official.png');
 INSERT INTO `wx_settings` VALUES ('ossType', 'cosv5');
 INSERT INTO `wx_settings` VALUES ('pc_index_contributors', '10000,10001,11580,11581,11583');
@@ -2705,6 +2725,7 @@ INSERT INTO `wx_settings` VALUES ('pc_index_right_banner', 'https://img.mini.cho
 INSERT INTO `wx_settings` VALUES ('pc_login_bg', 'https://img.mini.chongyeapp.com/icons/pc_login_bg.png');
 INSERT INTO `wx_settings` VALUES ('pc_search_hot_keywords', '第一次养宠物,拉肚子,挑食');
 INSERT INTO `wx_settings` VALUES ('pc_search_input_placeholder', '在这里写下你想寻找的');
+INSERT INTO `wx_settings` VALUES ('template_message_notice_id', NULL);
 INSERT INTO `wx_settings` VALUES ('test', '{\"a\":1,\"b\":\"c\"}');
 INSERT INTO `wx_settings` VALUES ('user_background_maps', 'https://img.mini.chongyeapp.com/icons/back.jpg');
 INSERT INTO `wx_settings` VALUES ('version', '1.1.2');
@@ -2750,9 +2771,9 @@ CREATE TABLE `wx_shop_cart`  (
   `vip_price` decimal(10, 2) NOT NULL COMMENT 'vip价格',
   `price` decimal(10, 2) NOT NULL COMMENT '价格',
   `num` int(11) NULL DEFAULT NULL COMMENT '数量',
-  `user_id` int(11) NULL DEFAULT NULL COMMENT '用户id',
-  `goods_id` int(11) NULL DEFAULT NULL COMMENT '商品id',
-  `product_id` int(11) NULL DEFAULT NULL COMMENT '商品规格id',
+  `user_id` bigint(20) NULL DEFAULT NULL COMMENT '用户id',
+  `goods_id` bigint(20) NULL DEFAULT NULL COMMENT '商品id',
+  `product_id` bigint(20) NULL DEFAULT NULL COMMENT '商品规格id',
   `is_check` tinyint(1) NULL DEFAULT 1 COMMENT '是否勾选',
   `state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户删除，2已下单，3商品下架)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -2787,6 +2808,9 @@ CREATE TABLE `wx_shop_classify`  (
   `is_hot` tinyint(1) NULL DEFAULT 0 COMMENT '热榜',
   `is_highlight` tinyint(1) NULL DEFAULT 0 COMMENT '高亮',
   `state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1管理员隐藏)',
+  `in_mp` tinyint(4) NOT NULL DEFAULT 1 COMMENT '小程序',
+  `in_app` tinyint(4) NOT NULL DEFAULT 1 COMMENT 'app',
+  `in_h5` tinyint(4) NOT NULL DEFAULT 1 COMMENT 'h5',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
@@ -2798,18 +2822,18 @@ CREATE TABLE `wx_shop_classify`  (
 -- ----------------------------
 -- Records of wx_shop_classify
 -- ----------------------------
-INSERT INTO `wx_shop_classify` VALUES (1, '干粮', '主粮在这选', 'https://img.mini.chongyeapp.com/2022/09/02/e25391f0c16351c7cbfe4bdd51bb782a.png', NULL, 0, 1, 1, 1, 0, NULL, '2022-01-10 09:21:33', '2022-09-03 10:59:05');
-INSERT INTO `wx_shop_classify` VALUES (2, '零食', '罐头啥的', 'https://img.mini.chongyeapp.com/2022/09/02/3c6bd5adb3fdc517de7a8d4c80eb4586.png', NULL, 0, 2, 1, 1, 0, NULL, '2022-01-10 09:22:20', '2022-09-03 10:59:06');
-INSERT INTO `wx_shop_classify` VALUES (3, '百货', '百货', NULL, NULL, 0, 33, 0, 0, 1, '2022-01-11 12:08:45', '2022-01-10 09:22:42', '2022-01-11 12:08:45');
-INSERT INTO `wx_shop_classify` VALUES (4, '玩具', '给它个球，玩一整天', 'https://img.mini.chongyeapp.com/2022/09/02/bde9d21e1edd189896c231ebdeac9b6c.png', NULL, 0, 3, 1, 1, 0, NULL, '2022-01-10 09:23:20', '2022-09-03 10:59:06');
-INSERT INTO `wx_shop_classify` VALUES (5, '日用', '窝总要有一个吧', 'https://img.mini.chongyeapp.com/2022/09/02/b9b9577104f31801d9a0e42a744aaa6f.png', NULL, 0, 4, 1, 1, 0, NULL, '2022-01-10 09:24:29', '2022-09-03 10:59:06');
-INSERT INTO `wx_shop_classify` VALUES (6, '药品', '普通宠物药品啥的', 'https://img.mini.chongyeapp.com/2022/09/02/aafe453016b1cf45f0bd393b01958a87.png', NULL, 0, 5, 1, 1, 0, NULL, '2022-01-10 09:24:44', '2022-09-03 10:59:07');
-INSERT INTO `wx_shop_classify` VALUES (8, '食品生鲜', '食品生鲜', NULL, NULL, 0, 55, 0, 0, 1, '2022-01-12 00:46:02', '2022-01-11 11:58:11', '2022-01-12 00:46:02');
-INSERT INTO `wx_shop_classify` VALUES (9, '美容', '宠物美容工具', 'https://img.mini.chongyeapp.com/2022/09/02/1aab38a386fa377e9a4a5c4386bcac5c.png', NULL, 0, 6, 1, 1, 0, NULL, '2022-01-11 12:06:38', '2022-09-03 10:59:08');
-INSERT INTO `wx_shop_classify` VALUES (10, '出行', '宠物出行经验谈', 'https://img.mini.chongyeapp.com/2022/09/02/abfa71859e35995d7174200fc61d87f7.png', NULL, 0, 7, 1, 1, 0, NULL, '2022-01-11 12:07:23', '2022-09-03 10:59:09');
-INSERT INTO `wx_shop_classify` VALUES (11, '书籍', '科学的更多的了解ta们', 'https://img.mini.chongyeapp.com/2022/09/02/0a39cb666273d176d86f4e9d1bc41972.png', NULL, 0, 8, 1, 1, 0, NULL, '2022-01-13 10:04:27', '2022-09-03 10:59:10');
-INSERT INTO `wx_shop_classify` VALUES (12, '家装', '有宠物的家当怎么选', 'https://img.mini.chongyeapp.com/2022/09/02/cde7e08249511d7dbfe205cae34dfe21.png', NULL, 0, 9, 1, 1, 0, NULL, '2022-01-13 10:05:47', '2022-09-03 10:59:10');
-INSERT INTO `wx_shop_classify` VALUES (13, '活体', '小的宠物活体', 'https://img.mini.chongyeapp.com/2022/09/02/2501d9f642b753289c17c0c0a681da0d.png', NULL, 0, 10, 1, 1, 1, NULL, '2022-09-02 13:59:59', '2022-09-03 10:58:42');
+INSERT INTO `wx_shop_classify` VALUES (1, '干粮', '主粮在这选', 'https://img.mini.chongyeapp.com/2022/09/02/e25391f0c16351c7cbfe4bdd51bb782a.png', NULL, 0, 1, 1, 1, 0, 1, 1, 1, NULL, '2022-01-10 09:21:33', '2022-09-03 10:59:05');
+INSERT INTO `wx_shop_classify` VALUES (2, '零食', '罐头啥的', 'https://img.mini.chongyeapp.com/2022/09/02/3c6bd5adb3fdc517de7a8d4c80eb4586.png', NULL, 0, 2, 1, 1, 0, 1, 1, 1, NULL, '2022-01-10 09:22:20', '2022-09-03 10:59:06');
+INSERT INTO `wx_shop_classify` VALUES (3, '百货', '百货', NULL, NULL, 0, 33, 0, 0, 1, 1, 1, 1, '2022-01-11 12:08:45', '2022-01-10 09:22:42', '2022-01-11 12:08:45');
+INSERT INTO `wx_shop_classify` VALUES (4, '玩具', '给它个球，玩一整天', 'https://img.mini.chongyeapp.com/2022/09/02/bde9d21e1edd189896c231ebdeac9b6c.png', NULL, 0, 3, 1, 1, 0, 1, 1, 1, NULL, '2022-01-10 09:23:20', '2022-09-03 10:59:06');
+INSERT INTO `wx_shop_classify` VALUES (5, '日用', '窝总要有一个吧', 'https://img.mini.chongyeapp.com/2022/09/02/b9b9577104f31801d9a0e42a744aaa6f.png', NULL, 0, 4, 1, 1, 0, 1, 1, 1, NULL, '2022-01-10 09:24:29', '2022-09-03 10:59:06');
+INSERT INTO `wx_shop_classify` VALUES (6, '药品', '普通宠物药品啥的', 'https://img.mini.chongyeapp.com/2022/09/02/aafe453016b1cf45f0bd393b01958a87.png', NULL, 0, 5, 1, 1, 0, 1, 1, 1, NULL, '2022-01-10 09:24:44', '2022-09-03 10:59:07');
+INSERT INTO `wx_shop_classify` VALUES (8, '食品生鲜', '食品生鲜', NULL, NULL, 0, 55, 0, 0, 1, 1, 1, 1, '2022-01-12 00:46:02', '2022-01-11 11:58:11', '2022-01-12 00:46:02');
+INSERT INTO `wx_shop_classify` VALUES (9, '美容', '宠物美容工具', 'https://img.mini.chongyeapp.com/2022/09/02/1aab38a386fa377e9a4a5c4386bcac5c.png', NULL, 0, 6, 1, 1, 0, 1, 1, 1, NULL, '2022-01-11 12:06:38', '2022-09-03 10:59:08');
+INSERT INTO `wx_shop_classify` VALUES (10, '出行', '宠物出行经验谈', 'https://img.mini.chongyeapp.com/2022/09/02/abfa71859e35995d7174200fc61d87f7.png', NULL, 0, 7, 1, 1, 0, 1, 1, 1, NULL, '2022-01-11 12:07:23', '2022-09-03 10:59:09');
+INSERT INTO `wx_shop_classify` VALUES (11, '书籍', '科学的更多的了解ta们', 'https://img.mini.chongyeapp.com/2022/09/02/0a39cb666273d176d86f4e9d1bc41972.png', NULL, 0, 8, 1, 1, 0, 1, 1, 1, NULL, '2022-01-13 10:04:27', '2022-09-03 10:59:10');
+INSERT INTO `wx_shop_classify` VALUES (12, '家装', '有宠物的家当怎么选', 'https://img.mini.chongyeapp.com/2022/09/02/cde7e08249511d7dbfe205cae34dfe21.png', NULL, 0, 9, 1, 1, 0, 1, 1, 1, NULL, '2022-01-13 10:05:47', '2022-09-03 10:59:10');
+INSERT INTO `wx_shop_classify` VALUES (13, '活体', '小的宠物活体', 'https://img.mini.chongyeapp.com/2022/09/02/2501d9f642b753289c17c0c0a681da0d.png', NULL, 0, 10, 1, 1, 1, 1, 1, 1, NULL, '2022-09-02 13:59:59', '2022-09-03 10:58:42');
 
 -- ----------------------------
 -- Table structure for wx_shop_good_meta_num
@@ -2924,7 +2948,7 @@ CREATE TABLE `wx_shop_goods_product`  (
   `price` decimal(10, 2) NOT NULL COMMENT '价格',
   `stock` int(11) NULL DEFAULT NULL COMMENT '库存',
   `sort` int(11) NULL DEFAULT 0 COMMENT '排序',
-  `goods_id` int(11) NULL DEFAULT NULL COMMENT '商品id',
+  `goods_id` bigint(20) NULL DEFAULT NULL COMMENT '商品id',
   `state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1管理员隐藏)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -3148,7 +3172,7 @@ CREATE TABLE `wx_shop_order_after`  (
   `title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '售后标题',
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '售后内容',
   `order_id` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '订单编号',
-  `user_id` int(11) NOT NULL COMMENT '用户id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
   `state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0未处理，1已处理，2拒绝)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
@@ -3176,9 +3200,9 @@ CREATE TABLE `wx_shop_order_goods`  (
   `price` decimal(10, 2) NOT NULL COMMENT '价格',
   `recharge` int(11) NULL DEFAULT NULL COMMENT '实付',
   `quantity` int(11) NOT NULL COMMENT '数量',
-  `order_id` int(11) NOT NULL COMMENT '订单id',
-  `goods_id` int(11) NOT NULL COMMENT '商品id',
-  `product_id` int(11) NULL DEFAULT NULL COMMENT '商品规格id',
+  `order_id` bigint(20) NOT NULL COMMENT '订单id',
+  `goods_id` bigint(20) NOT NULL COMMENT '商品id',
+  `product_id` bigint(20) NULL DEFAULT NULL COMMENT '商品规格id',
   `type` tinyint(1) NULL DEFAULT 0 COMMENT '类型(0正常，1补发，2赠送)',
   `state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1退款中，2退货退款，3已退款，4异常)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -3507,7 +3531,7 @@ CREATE TABLE `wx_user`  (
   `country` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '国家',
   `province` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '省份',
   `city` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '城市',
-  `authentication_id` int(11) NULL DEFAULT NULL COMMENT '认证信息id',
+  `authentication_id` bigint(20) NULL DEFAULT NULL COMMENT '认证信息id',
   `is_authentication` tinyint(1) NOT NULL DEFAULT 0 COMMENT '认证(0否，1是)',
   `is_official` tinyint(1) NOT NULL DEFAULT 0 COMMENT '官方(0否，1是)',
   `is_member` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '是否会员',
@@ -3572,8 +3596,8 @@ INSERT INTO `wx_user` VALUES (11604, '超_越梦想', 'https://thirdwx.qlogo.cn/
 DROP TABLE IF EXISTS `wx_user_circle`;
 CREATE TABLE `wx_user_circle`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
-  `circle_id` int(11) NOT NULL COMMENT '圈子ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `circle_id` bigint(20) NOT NULL COMMENT '圈子ID',
   `is_read` tinyint(1) NOT NULL DEFAULT 0 COMMENT '读(0未读，1已读)',
   `user_circle_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户取消关注)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -3662,8 +3686,8 @@ CREATE TABLE `wx_user_financial_record`  (
 DROP TABLE IF EXISTS `wx_user_follow`;
 CREATE TABLE `wx_user_follow`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
-  `user_follow_id` int(11) NOT NULL COMMENT '用户关注用户ID',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `user_follow_id` bigint(20) NOT NULL COMMENT '用户关注用户ID',
   `is_read` tinyint(1) NOT NULL DEFAULT 0 COMMENT '读(0未读，1已读)',
   `user_follow_state` tinyint(1) NULL DEFAULT 0 COMMENT '状态(0正常，1用户取消关注)',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
@@ -3788,8 +3812,8 @@ CREATE TABLE `wx_user_pay`  (
 DROP TABLE IF EXISTS `wx_user_plate`;
 CREATE TABLE `wx_user_plate`  (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL COMMENT '用户id',
-  `plate_id` int(11) NOT NULL COMMENT '板块id',
+  `user_id` bigint(20) NOT NULL COMMENT '用户id',
+  `plate_id` bigint(20) NOT NULL COMMENT '板块id',
   `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
   `deleted_at` timestamp(0) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
