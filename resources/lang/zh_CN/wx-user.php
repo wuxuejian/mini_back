@@ -19,6 +19,7 @@ return [
         'weixin_web_openid' => '网站openid',
         'weixin_shop_openid' => '小商店openid',
         'phone' => '手机',
+        'country_code' => '国家区号',
         'email' => '邮箱',
         'country' => '国家',
         'province' => '省份',
@@ -29,6 +30,7 @@ return [
         'is_member' => '会员',
         'is_official' => '官方',
         'user_state' => '状态',
+
     ],
     'options' => [
     ],
